@@ -1,0 +1,15 @@
+# REF: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: paw-eks-cluster-course-dev-sydney
+  region: ap-southeast-2
+
+nodeGroups:
+  - name: paw-eks-ng-course-dev-sydney
+    instanceType: t3a.medium
+    # desiredCapacity: 2
+    desiredCapacity: 1
+    ssh:
+      publicKeyName: paw-cluster-prod-key-pair
