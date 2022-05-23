@@ -39,3 +39,6 @@ nodeGroups:
       spotInstancePools: 1
     ssh:
       publicKeyName: paw-cluster-prod-key-pair
+# cloudWatch:
+#   clusterLogging:
+#     enableTypes: ["api", "audit", "authenticator"]
