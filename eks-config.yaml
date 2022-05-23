@@ -13,3 +13,15 @@ nodeGroups:
     desiredCapacity: 1
     ssh:
       publicKeyName: paw-cluster-prod-key-pair
+  - name: paw-eks-ng-course-spot-dev-sydney
+    # minSize: 2
+    # maxSize: 2
+    minSize: 1
+    maxSize: 1
+    instancesDistribution:
+      maxPrice: 0.02
+      instanceTypes: [t3a.medium]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 50
+    ssh:
+      publicKeyName: paw-cluster-prod-key-pair
