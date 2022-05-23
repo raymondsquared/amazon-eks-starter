@@ -7,21 +7,35 @@ metadata:
   region: ap-southeast-2
 
 nodeGroups:
-  - name: paw-eks-ng-course-dev-sydney
-    instanceType: t3a.medium
-    # desiredCapacity: 2
-    desiredCapacity: 1
-    ssh:
-      publicKeyName: paw-cluster-prod-key-pair
+  # - name: paw-eks-ng-course-spot-dev-sydney
+  #   - name: paw-eks-ng-course-dev-sydney
+  #   instanceType: t3a.medium
+  #   # desiredCapacity: 2
+  #   desiredCapacity: 1
+  #   ssh:
+  #     publicKeyName: paw-cluster-prod-key-pair
+  # - name: paw-eks-ng-course-mixed-dev-sydney
+  #   # minSize: 2
+  #   # maxSize: 3
+  #   minSize: 1
+  #   maxSize: 2
+  #   instancesDistribution:
+  #     maxPrice: 0.02
+  #     instanceTypes: [t3a.medium]
+  #     onDemandBaseCapacity: 0
+  #     onDemandPercentageAboveBaseCapacity: 50
+  #   ssh:
+  #     publicKeyName: paw-cluster-prod-key-pair
   - name: paw-eks-ng-course-spot-dev-sydney
     # minSize: 2
-    # maxSize: 2
+    # maxSize: 3
     minSize: 1
-    maxSize: 1
+    maxSize: 2
     instancesDistribution:
       maxPrice: 0.02
       instanceTypes: [t3a.medium]
       onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 50
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 1
     ssh:
       publicKeyName: paw-cluster-prod-key-pair
