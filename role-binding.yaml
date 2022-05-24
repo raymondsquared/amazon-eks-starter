@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: k8s-read-production-role-binding
+  namespace: production
+subjects:
+- kind: User
+  name: paw-developer-1
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: k8s-read-production-role
+  apiGroup: ""

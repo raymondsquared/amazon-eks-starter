@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::583774007388:role/eksctl-paw-eks-cluster-course-dev-NodeInstanceRole-B4Q2BRCUKVM6
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - userarn: arn:aws:iam::583774007388:user/paw-infrastructure-user
+      username: paw-infrastructure-user
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::583774007388:user/paw-ci-cd
+      username: paw-ci-cd
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::583774007388:user/paw-developer-1
+      username: paw-developer-1
+      groups:
+        - k8s-read-production-role
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"mapRoles":"- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::583774007388:role/eksctl-paw-eks-cluster-course-dev-NodeInstanceRole-B4Q2BRCUKVM6\n  username: system:node:{{EC2PrivateDNSName}}\n","mapUsers":"- userarn: arn:aws:iam::583774007388:user/paw-infrastructure-user\n  username: paw-infrastructure-user\n  groups:\n    - system:masters\n- userarn: arn:aws:iam::583774007388:user/paw-ci-cd\n  username: paw-ci-cd\n  groups:\n    - system:masters\n"},"kind":"ConfigMap","metadata":{"annotations":{},"creationTimestamp":"2022-05-23T05:26:03Z","name":"aws-auth","namespace":"kube-system","resourceVersion":"70058","uid":"b003e326-fc85-4a9e-a10e-699e88ddd139"}}
+  creationTimestamp: "2022-05-23T05:26:03Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "197048"
+  uid: b003e326-fc85-4a9e-a10e-699e88ddd139
